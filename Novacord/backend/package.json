@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node ../src/index.js",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
   "keywords": [
@@ -23,6 +23,7 @@
     "body-parser": "^1.20.2",
     "canvacord": "^5.4.10",
     "common-tags": "^1.8.2",
+    "dbd-soft-ui": "^1.0.12",
     "discord-backup": "^3.3.2",
     "discord-giveaways": "^6.0.1",
     "discord-interactions": "^3.4.0",
@@ -32,6 +33,7 @@
     "express-session": "^1.17.3",
     "fetch": "^1.1.0",
     "ffmpeg-static": "^5.2.0",
+    "humanize-duration": "^3.31.0",
     "lodash": "^4.17.21",
     "merge-options": "^3.0.4",
     "moment": "^2.29.4",
@@ -43,7 +45,9 @@
     "one-liner-joke": "^1.2.2",
     "openai": "^4.20.0",
     "pg": "^8.11.3",
+    "sourcebin_js": "^0.0.3-ignore",
     "util": "^0.12.5",
+    "youtube-sr": "^4.3.9",
     "yt-search": "^2.10.4",
     "ytsr": "^3.8.4"
   }

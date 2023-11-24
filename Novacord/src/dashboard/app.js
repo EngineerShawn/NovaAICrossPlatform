@@ -1,5 +1,5 @@
 const NCD = require("novacord-dashboard");
-const CaprihamTheme = require("dbd-capriham-theme");
+const SoftUI = require("DBD-Soft-");
 const Discord = require("discord.js");
 module.exports = async (client) => {
   let cmd = [];
@@ -16,7 +16,7 @@ module.exports = async (client) => {
       commandDescription: command.description || "No Description",
     })
   );
-  const Dashboard = new DBD.Dashboard({
+  const Dashboard = new NCD.Dashboard({
     port: 3000,
     client: {
       id: client.config.dash.id,
@@ -49,7 +49,7 @@ module.exports = async (client) => {
       inviteUrl: client.config.server.invite,
     },
     bot: client,
-    theme: CaprihamTheme({
+    theme: SoftUI({
       websiteName: client.user.username,
       footer: "឵",
       iconURL: client.user.avatarURL(),
@@ -101,7 +101,7 @@ module.exports = async (client) => {
             optionId: "prefix",
             optionName: "Prefix",
             optionDescription: "The prefix on the current server is;",
-            optionType: DBD.formTypes.input("Bot Prefix", 1, 3, false, true),
+            optionType: NCD.formTypes.input("Bot Prefix", 1, 3, false, true),
             getActualSet: async ({ guild }) => {
               return (await client.data.get(`Prefix_${guild.id}`)) || false;
             },
@@ -114,7 +114,7 @@ module.exports = async (client) => {
             optionId: "nickname",
             optionName: "Nickname",
             optionDescription: "Bot's nickname on the guild;",
-            optionType: DBD.formTypes.input("Bot username", 1, 16, false, true),
+            optionType: NCD.formTypes.input("Bot username", 1, 16, false, true),
             getActualSet: async ({ guild }) => {
               return (
                 client.guilds.cache
@@ -134,7 +134,7 @@ module.exports = async (client) => {
             optionId: "auto-roles",
             optionName: "Auto Roles",
             optionDescription: `Auto Roles For new members to enter the server;`,
-            optionType: DBD.formTypes.rolesMultiSelect(false, true),
+            optionType: NCD.formTypes.rolesMultiSelect(false, true),
             getActualSet: async ({ guild }) => {
               return (await client.data.get(`roles_auto_${guild.id}`)) || false;
             },
@@ -148,7 +148,7 @@ module.exports = async (client) => {
             optionName: "Auto Nickname",
             optionDescription:
               "Auto Nickname For new members to enter the server;",
-            optionType: DBD.formTypes.input(
+            optionType: NCD.formTypes.input(
               "[Member] {username}",
               1,
               20,
@@ -175,7 +175,7 @@ module.exports = async (client) => {
             optionName: "Channel Welcome",
             optionDescription:
               "Notify that there is a new member on the server;",
-            optionType: DBD.formTypes.channelsSelect(false, false),
+            optionType: NCD.formTypes.channelsSelect(false, false),
             getActualSet: async ({ guild }) => {
               return (
                 (await client.data.get(`wel_channel__${guild.id}`)) || false
@@ -190,7 +190,7 @@ module.exports = async (client) => {
             optionId: "ch-leave",
             optionName: "Channel Leave",
             optionDescription: "Notifying that a member has left the server;",
-            optionType: DBD.formTypes.channelsSelect(false, false),
+            optionType: NCD.formTypes.channelsSelect(false, false),
             getActualSet: async ({ guild }) => {
               return (
                 (await client.data.get(`lev_channel__${guild.id}`)) || false
@@ -206,7 +206,7 @@ module.exports = async (client) => {
             optionName: "Channel Level Up",
             optionDescription:
               "Notifying that the member has leveled up on the server;",
-            optionType: DBD.formTypes.channelsSelect(false, false),
+            optionType: NCD.formTypes.channelsSelect(false, false),
             getActualSet: async ({ guild }) => {
               return (
                 (await client.data.get(`lvl_channel__${guild.id}`)) || false
@@ -222,7 +222,7 @@ module.exports = async (client) => {
             optionName: "Channel Moderation Logs",
             optionDescription:
               "Notify that the staff is warning members or others;",
-            optionType: DBD.formTypes.channelsSelect(false, false),
+            optionType: NCD.formTypes.channelsSelect(false, false),
             getActualSet: async ({ guild }) => {
               return (await client.data.get(`modlog_${guild.id}`)) || false;
             },
@@ -236,7 +236,7 @@ module.exports = async (client) => {
             optionName: "Channel Starboard",
             optionDescription:
               "Notifying that anyone react message with ⭐ eats on send on server;",
-            optionType: DBD.formTypes.channelsSelect(false, false),
+            optionType: NCD.formTypes.channelsSelect(false, false),
             getActualSet: async ({ guild }) => {
               return (
                 (await client.data.get(`starboard_channel__${guild.id}`)) ||
@@ -260,7 +260,7 @@ module.exports = async (client) => {
             optionName: "Message Welcome",
             optionDescription:
               "Text to be changed; {user} / {username}, {server}, {invite}, {inviter} / {inviter-username}, {member_join}, {member_at}, {membercount}, {:name_emoji}",
-            optionType: DBD.formTypes.textarea(
+            optionType: NCD.formTypes.textarea(
               "Welcome {user}",
               15,
               20881,
@@ -282,7 +282,7 @@ module.exports = async (client) => {
             optionName: "Message Leave",
             optionDescription:
               "Text to be changed; {user} / {username}, {server}, {member_leave}, {membercount}, {:name_emoji}",
-            optionType: DBD.formTypes.textarea(
+            optionType: NCD.formTypes.textarea(
               "Goodbye {user}",
               15,
               20881,
@@ -302,7 +302,7 @@ module.exports = async (client) => {
             optionName: "Message Level",
             optionDescription:
               "Text to be changed; {user} / {username}, {server}, {member_level}, {member_xp}, {:name_emoji}",
-            optionType: DBD.formTypes.textarea(
+            optionType: NCD.formTypes.textarea(
               "You Have Leveled Up To Level **{member_level}**",
               8,
               129,
@@ -322,7 +322,7 @@ module.exports = async (client) => {
             optionName: "Message Badword",
             optionDescription:
               "Text to be changed; {user} / {username}, {server}, {:name_emoji}",
-            optionType: DBD.formTypes.textarea(
+            optionType: NCD.formTypes.textarea(
               "❌ | **{user}, The Word You said is blacklisted!**",
               8,
               129,
