@@ -1,0 +1,33 @@
+{
+  "name": "novacord-xp",
+  "version": "1.11.23",
+  "description": "A lightweight and easy to use economy framework for discord bots, uses PostgreSQL instead of MongoDB.",
+  "main": "index.js",
+  "dependencies": {
+    "mongoose": "^6.5.1",
+    "pg": "^8.11.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EngineerShawn/novacord-xp"
+  },
+  "scripts": {
+    "test": "jest"
+},
+  "keywords": [],
+  "author": "EngineerShawn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EngineerShawn/Novacord-xp/issues"
+  },
+  "homepage": "https://github.com/EngineerShawn/Novacord-xp#readme",
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "eslint": "^8.21.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^29.7.0"
+  }
+}
